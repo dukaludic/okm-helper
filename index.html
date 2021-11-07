@@ -152,6 +152,118 @@
       </tr>
     </table>
     <script>
+      const krispyKreme = {
+        hardware: {
+          allPinpads: {
+            priority: "Critical",
+            asset: "MX915",
+            operationsCategory:
+              "Transactional>Store>Register>Debit/Credit Transaction",
+            productCategory: "Software>Hospitality>Aloha>Aloha Connect",
+            resolutionsCategory: "Software>Procedural",
+          },
+          scanner: {
+            priority: "Medium",
+            asset: "Honeycomb",
+            operationsCategory: "Fix/Repair>Troubleshoot>Performance",
+            productCategory: "Hello",
+            resolutionsCategory: "Hardware/Adjust",
+          },
+          BOH: {
+            priority: "High",
+            asset: "H400",
+            operationsCategory: "Warning/Error > Degraded Performance",
+            productCategory: "Hardware > Back Office > 3rd Party > File Server",
+            resolutionsCategory: "Hardware > Adjust",
+          },
+        },
+        software: {
+          ultipro: {
+            priority: "Low",
+            asset: "UKG",
+            operationsCategory:
+              "Procedural > Employee Maintenance > Password Reset",
+            productCategory: "Software > 3rd Party > Ultipro",
+            resolutionsCategory: "Remote Resolve",
+          },
+        },
+      };
+
+      const checkers = {
+        hardware: {
+          allPinpads: {
+            priority: "Critical CHK",
+            asset: "MX915 CHK",
+            operationsCategory:
+              "Transactional>Store>Register>Debit/Credit Transaction CHK",
+            productCategory: "Software>Hospitality>Aloha>Aloha Connect CHK",
+            resolutionsCategory: "Software>Procedural CHK",
+          },
+          scanner: {
+            priority: "Medium CHK",
+            asset: "Honeycomb CHK",
+            operationsCategory: "Fix/Repair>Troubleshoot>Performance CHK",
+            productCategory: "Hello CHK",
+            resolutionsCategory: "Hardware/Adjust CHK",
+          },
+          BOH: {
+            priority: "High",
+            asset: "H400",
+            operationsCategory: "Warning/Error > Degraded Performance",
+            productCategory: "Hardware > Back Office > 3rd Party > File Server",
+            resolutionsCategory: "Hardware > Adjust",
+          },
+        },
+        software: {
+          RTI: {
+            priority: "Low CHK",
+            asset: "CHK",
+            operationsCategory:
+              "Procedural > Employee Maintenance > Password Reset CHK",
+            productCategory: "Software > 3rd Party > Ultipro CHK",
+            resolutionsCategory: "Remote Resolve CHK",
+          },
+        },
+      };
+
+      const kfcData = {
+        hardware: {
+          allPinpads: {
+            priority: "Critical KFC",
+            asset: "MX915 KFC",
+            operationsCategory:
+              "Transactional>Store>Register>Debit/Credit Transaction KFC",
+            productCategory: "Software>Hospitality>Aloha>Aloha Connect KFC",
+            resolutionsCategory: "Software>Procedural KFC",
+          },
+          scanner: {
+            priority: "Medium KFC",
+            asset: "Honeycomb KFC",
+            operationsCategory: "Fix/Repair>Troubleshoot>Performance KFC",
+            productCategory: "Hello KFC",
+            resolutionsCategory: "Hardware/Adjust KFC",
+          },
+          BOH: {
+            priority: "High KFC",
+            asset: "H400 KFC",
+            operationsCategory: "Warning/Error > Degraded Performance KFC",
+            productCategory:
+              "Hardware > Back Office > 3rd Party > File Server KFC",
+            resolutionsCategory: "Hardware > Adjust KFC",
+          },
+        },
+        software: {
+          RTI: {
+            priority: "Low KFC",
+            asset: "KFC",
+            operationsCategory:
+              "Procedural > Employee Maintenance > Password Reset KFC",
+            productCategory: "Software > 3rd Party > Ultipro KFC",
+            resolutionsCategory: "Remote Resolve KFC",
+          },
+        },
+      };
+
       const dropdown = document.getElementById("items");
       const priority = document.getElementById("priority");
       const asset = document.getElementById("asset");
@@ -230,82 +342,6 @@
 
       console.log(dropdown);
       let currentCompany = "";
-
-      const krispyKreme = {
-        hardware: {
-          allPinpads: {
-            priority: "Critical",
-            asset: "MX915",
-            operationsCategory:
-              "Transactional>Store>Register>Debit/Credit Transaction",
-            productCategory: "Software>Hospitality>Aloha>Aloha Connect",
-            resolutionsCategory: "Software>Procedural",
-          },
-          scanner: {
-            priority: "Medium",
-            asset: "Honeycomb",
-            operationsCategory: "Fix/Repair>Troubleshoot>Performance",
-            productCategory: "",
-            resolutionsCategory: "Hardware/Adjust",
-          },
-        },
-        software: {
-          ultipro: {
-            priority: "Low",
-            asset: "UKG",
-            operationsCategory:
-              "Procedural > Employee Maintenance > Password Reset",
-            productCategory: "Software > 3rd Party > Ultipro",
-            resolutionsCategory: "Remote Resolve",
-          },
-        },
-      };
-
-      console.log(Object.keys(krispyKreme["hardware"]));
-
-      const allPinpads = {
-        priority: "Critical",
-        asset: "MX915",
-        operationsCategory:
-          "Transactional>Store>Register>Debit/Credit Transaction",
-        productCategory: "Software>Hospitality>Aloha>Aloha Connect",
-        resolutionsCategory: "Software>Procedural",
-      };
-
-      const scanner = {
-        priority: "Medium",
-        asset: "Honeycomb",
-        operationsCategory: "Fix/Repair>Troubleshoot>Performance",
-        productCategory: "",
-        resolutionsCategory: "Hardware/Adjust",
-      };
-
-      const checkersOptionsArr = [
-        "Scanner",
-        "BOH",
-        "All Pinpads",
-        "RTI",
-        "Mag Card",
-      ];
-
-      const krispyOptionsArr = [
-        "Scanner",
-        "BOH",
-        "All Pinpads",
-        "Oracle",
-        "Ultipro",
-        "AS400",
-      ];
-
-      const kfcOptionsArr = [
-        "Scanner",
-        "BOH",
-        "All Pinpads",
-        "Pljeskavice",
-        "NestoKFC",
-        "JosNestoKFC",
-      ];
-
       let previousType = "";
       function init(company, type) {
         console.log(company, type);
@@ -313,9 +349,10 @@
         if (currentCompany === company && previousType === type) {
           return;
         } else {
+          let arr = [];
           switch (company) {
             case "krispykreme":
-              let arr = Object.keys(krispyKreme[type]);
+              arr = Object.keys(krispyKreme[type]);
               for (let i = dropdown.length; i >= 0; i--) {
                 dropdown.remove(i);
               }
@@ -325,27 +362,57 @@
                 console.log(dropdown, "===dropdown");
               }
 
+              priority.innerHTML = krispyKreme[`${type}`][`${arr[0]}`].priority;
+              asset.innerHTML = krispyKreme[`${type}`][`${arr[0]}`].asset;
+              operationsCategory.innerHTML =
+                krispyKreme[`${type}`][`${arr[0]}`].operationsCategory;
+              productCategory.innerHTML =
+                krispyKreme[`${type}`][`${arr[0]}`].productCategory;
+              resolutionsCategory.innerHTML =
+                krispyKreme[`${type}`][`${arr[0]}`].resolutionsCategory;
+
               break;
             case "checkers":
+              arr = Object.keys(checkers[type]);
               for (let i = dropdown.length; i >= 0; i--) {
                 dropdown.remove(i);
               }
-              for (let i = 0; i < checkersOptionsArr.length; i++) {
-                dropdown.add(
-                  new Option(checkersOptionsArr[i], checkersOptionsArr[i])
-                );
+              for (let i = 0; i < arr.length; i++) {
+                console.log(arr, "===hardware i");
+                dropdown.add(new Option(arr[i], arr[i]));
+                console.log(dropdown, "===dropdown");
               }
+
+              priority.innerHTML = checkers[`${type}`][`${arr[0]}`].priority;
+              asset.innerHTML = checkers[`${type}`][`${arr[0]}`].asset;
+              operationsCategory.innerHTML =
+                checkers[`${type}`][`${arr[0]}`].operationsCategory;
+              productCategory.innerHTML =
+                checkers[`${type}`][`${arr[0]}`].productCategory;
+              resolutionsCategory.innerHTML =
+                checkers[`${type}`][`${arr[0]}`].resolutionsCategory;
 
               console.log("checkers");
               break;
             case "kfc":
+              arr = Object.keys(kfcData[type]);
               for (let i = dropdown.length; i >= 0; i--) {
                 dropdown.remove(i);
               }
-              for (let i = 0; i < kfcOptionsArr.length; i++) {
-                dropdown.add(new Option(kfcOptionsArr[i], kfcOptionsArr[i]));
+              for (let i = 0; i < arr.length; i++) {
+                console.log(arr, "===hardware i");
+                dropdown.add(new Option(arr[i], arr[i]));
+                console.log(dropdown, "===dropdown");
               }
-              console.log(dropdown);
+
+              priority.innerHTML = kfcData[`${type}`][`${arr[0]}`].priority;
+              asset.innerHTML = kfcData[`${type}`][`${arr[0]}`].asset;
+              operationsCategory.innerHTML =
+                kfcData[`${type}`][`${arr[0]}`].operationsCategory;
+              productCategory.innerHTML =
+                kfcData[`${type}`][`${arr[0]}`].productCategory;
+              resolutionsCategory.innerHTML =
+                kfcData[`${type}`][`${arr[0]}`].resolutionsCategory;
               console.log("kfc");
               break;
           }
@@ -359,18 +426,64 @@
       dropdown.onchange = console.log(dropdown);
 
       dropdown.onchange = function () {
-        if (this.value === "scanner") {
-          priority.innerHTML = scanner.priority;
-          asset.innerHTML = scanner.asset;
-          operationsCategory.innerHTML = scanner.operationsCategory;
-          productCategory.innerHTML = scanner.productCategory;
-          resolutionsCategory.innerHTML = scanner.resolutionsCategory;
-        } else if (this.value == "allPinpads") {
-          priority.innerHTML = allPinpads.priority;
-          asset.innerHTML = allPinpads.asset;
-          operationsCategory.innerHTML = allPinpads.operationsCategory;
-          productCategory.innerHTML = allPinpads.productCategory;
-          resolutionsCategory.innerHTML = allPinpads.resolutionsCategory;
+        console.log(krispyKreme["hardware"]["allPinpads"].priority);
+        console.log([`${this.value}`]);
+
+        switch (companySelected) {
+          case "krispykreme":
+            priority.innerHTML =
+              krispyKreme[`${typeOfIssuesSelected}`][`${this.value}`].priority;
+            asset.innerHTML =
+              krispyKreme[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+            operationsCategory.innerHTML =
+              krispyKreme[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].operationsCategory;
+            productCategory.innerHTML =
+              krispyKreme[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].productCategory;
+            resolutionsCategory.innerHTML =
+              krispyKreme[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].resolutionsCategory;
+            break;
+          case "checkers":
+            priority.innerHTML =
+              checkers[`${typeOfIssuesSelected}`][`${this.value}`].priority;
+            asset.innerHTML =
+              checkers[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+            operationsCategory.innerHTML =
+              checkers[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].operationsCategory;
+            productCategory.innerHTML =
+              checkers[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].productCategory;
+            resolutionsCategory.innerHTML =
+              checkers[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].resolutionsCategory;
+            break;
+          case "kfc":
+            priority.innerHTML =
+              kfcData[`${typeOfIssuesSelected}`][`${this.value}`].priority;
+            asset.innerHTML =
+              kfcData[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+            operationsCategory.innerHTML =
+              kfcData[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].operationsCategory;
+            productCategory.innerHTML =
+              kfcData[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].productCategory;
+            resolutionsCategory.innerHTML =
+              kfcData[`${typeOfIssuesSelected}`][
+                `${this.value}`
+              ].resolutionsCategory;
+            break;
         }
       };
     </script>
