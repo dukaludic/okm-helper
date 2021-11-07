@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script></script>
+
+    <!-- /////////////////// -->
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .companyImage {
+        width: auto;
+        height: 180px;
+        margin: 0 auto;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: all 0.3s;
+      }
+
+      /* .companyImage:hover {
+        filter: grayscale(0);
+      } */
+
+      #kk {
+        transform: scale(50%) translateX(-150px);
+        margin-right: 100px;
+      }
+
+      #chk {
+        transform: scale(120%);
+      }
+
+      #kfc {
+        transform: translateX(30px);
+      }
+
+      .border {
+        border: 1px solid #aaa;
+      }
+
+      .typeTab {
+        border: 1px solid #aaa;
+        cursor: pointer;
+      }
+    </style>
+
+    <table
+      class="border"
+      style="border-collapse: collapse; width: 800px; word-wrap: break-word"
+    >
+      <tr class="border">
+        <th colspan="2">
+          <div style="width: 300px; height: 200px">
+            <img
+              class="companyImage"
+              id="kk"
+              src="https://assets.stickpng.com/images/584fcb3f6a5ae41a83ddee87.png"
+            />
+          </div>
+        </th>
+        <th colspan="2">
+          <div style="width: 300px; height: 200px">
+            <img
+              class="companyImage"
+              id="kfc"
+              src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488265976/k2htrr9z4vsxkjbthskk.png"
+            />
+          </div>
+        </th>
+        <th colspan="2">
+          <div style="width: 300px; height: 200px; overflow: hidden">
+            <img
+              class="companyImage"
+              id="chk"
+              src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
+            />
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td id="hardware" colspan="2" class="typeTab border">
+          Hardware Issues
+        </td>
+        <td id="software" colspan="2" class="typeTab border">
+          Software Issues
+        </td>
+        <td id="network" colspan="2" class="typeTab border">Network Issues</td>
+      </tr>
+
+      <tr>
+        <td class="border">Hardware Issues</td>
+        <td class="border">
+          <table style="border-collapse: collapse">
+            <td>
+              <table class="test">
+                <tr>
+                  <td colspan="4">
+                    <div style="width: 100%; height: 100%">Type of problem</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="4"><div>Priority</div></td>
+                </tr>
+                <tr>
+                  <td colspan="4"><div>Asset</div></td>
+                </tr>
+              </table>
+            </td>
+          </table>
+        </td>
+        <td>
+          <table>
+            <td>
+              <table>
+                <tr>
+                  <select name="items" id="items"></select>
+                </tr>
+                <tr>
+                  <td id="priority">n/a</td>
+                </tr>
+                <tr>
+                  <td id="asset">n/a</td>
+                </tr>
+              </table>
+            </td>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="border">Operations Category</td>
+        <td id="operationsCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Product Category</td>
+        <td id="productCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Resolution Category</td>
+        <td id="resolutionsCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Ticket Name</td>
+        <td class="border" colspan="4">n/a</td>
+      </tr>
+    </table>
+    <script>
+      const dropdown = document.getElementById("items");
+      const priority = document.getElementById("priority");
+      const asset = document.getElementById("asset");
+      const operationsCategory = document.getElementById("operationsCategory");
+      const productCategory = document.getElementById("productCategory");
+      const resolutionsCategory = document.getElementById(
+        "resolutionsCategory"
+      );
+      const kk = document.getElementById("kk");
+      const chk = document.getElementById("chk");
+      const kfc = document.getElementById("kfc");
+      const software = document.getElementById("software");
+      const hardware = document.getElementById("hardware");
+      const network = document.getElementById("network");
+
+      let typeOfIssuesSelected = "";
+      let companySelected = "";
+
+      hardware.addEventListener("click", function () {
+        typeOfIssuesSelected = "hardware";
+        hardware.style.backgroundColor = "#ddd";
+        software.style.backgroundColor = "#fff";
+        network.style.backgroundColor = "#fff";
+        if (companySelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+
+      software.addEventListener("click", function () {
+        typeOfIssuesSelected = "software";
+        hardware.style.backgroundColor = "#fff";
+        software.style.backgroundColor = "#ddd";
+        network.style.backgroundColor = "#fff";
+        if (companySelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+
+      network.addEventListener("click", function () {
+        typeOfIssuesSelected = "network";
+        network.style.backgroundColor = "#ddd";
+        hardware.style.backgroundColor = "#fff";
+        software.style.backgroundColor = "#fff";
+        if (companySelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+
+      kk.addEventListener("click", function () {
+        companySelected = "krispykreme";
+        kk.style.filter = "grayscale(0)";
+        chk.style.filter = "grayscale(60%)";
+        kfc.style.filter = "grayscale(60%)";
+        if (typeOfIssuesSelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+      chk.addEventListener("click", function () {
+        companySelected = "checkers";
+        kk.style.filter = "grayscale(60%)";
+        chk.style.filter = "grayscale(0)";
+        kfc.style.filter = "grayscale(60%)";
+        if (typeOfIssuesSelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+      kfc.addEventListener("click", function () {
+        companySelected = "kfc";
+        kk.style.filter = "grayscale(60%)";
+        chk.style.filter = "grayscale(60%)";
+        kfc.style.filter = "grayscale(0)";
+        if (typeOfIssuesSelected) {
+          init(companySelected, typeOfIssuesSelected);
+        }
+      });
+
+      console.log(dropdown);
+      let currentCompany = "";
+
+      const krispyKreme = {
+        hardware: {
+          allPinpads: {
+            priority: "Critical",
+            asset: "MX915",
+            operationsCategory:
+              "Transactional>Store>Register>Debit/Credit Transaction",
+            productCategory: "Software>Hospitality>Aloha>Aloha Connect",
+            resolutionsCategory: "Software>Procedural",
+          },
+          scanner: {
+            priority: "Medium",
+            asset: "Honeycomb",
+            operationsCategory: "Fix/Repair>Troubleshoot>Performance",
+            productCategory: "",
+            resolutionsCategory: "Hardware/Adjust",
+          },
+        },
+        software: {
+          ultipro: {
+            priority: "Low",
+            asset: "UKG",
+            operationsCategory:
+              "Procedural > Employee Maintenance > Password Reset",
+            productCategory: "Software > 3rd Party > Ultipro",
+            resolutionsCategory: "Remote Resolve",
+          },
+        },
+      };
+
+      console.log(Object.keys(krispyKreme["hardware"]));
+
+      const allPinpads = {
+        priority: "Critical",
+        asset: "MX915",
+        operationsCategory:
+          "Transactional>Store>Register>Debit/Credit Transaction",
+        productCategory: "Software>Hospitality>Aloha>Aloha Connect",
+        resolutionsCategory: "Software>Procedural",
+      };
+
+      const scanner = {
+        priority: "Medium",
+        asset: "Honeycomb",
+        operationsCategory: "Fix/Repair>Troubleshoot>Performance",
+        productCategory: "",
+        resolutionsCategory: "Hardware/Adjust",
+      };
+
+      const checkersOptionsArr = [
+        "Scanner",
+        "BOH",
+        "All Pinpads",
+        "RTI",
+        "Mag Card",
+      ];
+
+      const krispyOptionsArr = [
+        "Scanner",
+        "BOH",
+        "All Pinpads",
+        "Oracle",
+        "Ultipro",
+        "AS400",
+      ];
+
+      const kfcOptionsArr = [
+        "Scanner",
+        "BOH",
+        "All Pinpads",
+        "Pljeskavice",
+        "NestoKFC",
+        "JosNestoKFC",
+      ];
+
+      let previousType = "";
+      function init(company, type) {
+        console.log(company, type);
+        //tu je bug
+        if (currentCompany === company && previousType === type) {
+          return;
+        } else {
+          switch (company) {
+            case "krispykreme":
+              let arr = Object.keys(krispyKreme[type]);
+              for (let i = dropdown.length; i >= 0; i--) {
+                dropdown.remove(i);
+              }
+              for (let i = 0; i < arr.length; i++) {
+                console.log(arr, "===hardware i");
+                dropdown.add(new Option(arr[i], arr[i]));
+                console.log(dropdown, "===dropdown");
+              }
+
+              break;
+            case "checkers":
+              for (let i = dropdown.length; i >= 0; i--) {
+                dropdown.remove(i);
+              }
+              for (let i = 0; i < checkersOptionsArr.length; i++) {
+                dropdown.add(
+                  new Option(checkersOptionsArr[i], checkersOptionsArr[i])
+                );
+              }
+
+              console.log("checkers");
+              break;
+            case "kfc":
+              for (let i = dropdown.length; i >= 0; i--) {
+                dropdown.remove(i);
+              }
+              for (let i = 0; i < kfcOptionsArr.length; i++) {
+                dropdown.add(new Option(kfcOptionsArr[i], kfcOptionsArr[i]));
+              }
+              console.log(dropdown);
+              console.log("kfc");
+              break;
+          }
+          previousType = type;
+          currentCompany = company;
+        }
+      }
+
+      // companyImage.addEventListener("click", changeHandler);
+
+      dropdown.onchange = console.log(dropdown);
+
+      dropdown.onchange = function () {
+        if (this.value === "scanner") {
+          priority.innerHTML = scanner.priority;
+          asset.innerHTML = scanner.asset;
+          operationsCategory.innerHTML = scanner.operationsCategory;
+          productCategory.innerHTML = scanner.productCategory;
+          resolutionsCategory.innerHTML = scanner.resolutionsCategory;
+        } else if (this.value == "allPinpads") {
+          priority.innerHTML = allPinpads.priority;
+          asset.innerHTML = allPinpads.asset;
+          operationsCategory.innerHTML = allPinpads.operationsCategory;
+          productCategory.innerHTML = allPinpads.productCategory;
+          resolutionsCategory.innerHTML = allPinpads.resolutionsCategory;
+        }
+      };
+    </script>
+  </body>
+</html>
