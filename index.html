@@ -14,6 +14,7 @@
     <style>
       body {
         font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
       }
 
       .companyImage {
@@ -35,11 +36,14 @@
       }
 
       #chk {
-        transform: scale(120%);
+        transform: scale(130%);
       }
 
       #kfc {
-        transform: translateX(30px);
+      }
+
+      #kk {
+        transform: scale(50%) translateX(90px);
       }
 
       .border {
@@ -50,9 +54,198 @@
         border: 1px solid #aaa;
         cursor: pointer;
       }
+
+      .logos-container {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .logo-container {
+        width: 33%;
+        /* background-color: aliceblue; */
+        overflow: hidden;
+      }
+
+      .logo-container {
+        display: flex;
+        justify-content: center;
+      }
+
+      .d-flex {
+        display: flex;
+      }
+
+      .border {
+        border: 1px solid #aaa;
+      }
+
+      .border-rlb {
+        border: 1px solid #aaa;
+        border-top: none;
+      }
+
+      .border-r {
+        border-right: 1px solid #aaa;
+      }
+
+      .border-t {
+        border-top: 1px solid #aaa;
+      }
+
+      .issues-heading-container {
+        display: flex;
+        margin-bottom: 30px;
+      }
+
+      .issues-heading {
+        padding: 10px;
+        width: 33%;
+        border: 1px solid #aaa;
+        border-right: none;
+        transition: all 0.3s;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 16px;
+      }
+
+      .issues-heading:nth-child(3) {
+        padding: 10px;
+        width: 33%;
+        border: 1px solid #aaa;
+      }
+
+      .type-of-issue-container {
+        border-top: none;
+        padding: 10px;
+      }
+
+      .type-of-issue-container:nth-child(1) {
+        width: 15%;
+        border: 1px solid #aaa;
+        border-top: none;
+      }
+
+      .w-15 {
+        width: 25%;
+      }
+
+      .dropdown-container {
+        border: 1px solid #aaa;
+        width: 100%;
+        border-top: none;
+        border-left: none;
+      }
+
+      /* .table-cell {
+        padding: 0;
+      } */
+
+      p {
+        margin: 0;
+      }
+
+      /* #items {
+        background-color: white;
+        border: none;
+      } */
+
+      #items {
+        width: 200px;
+      }
+
+      #priority {
+        font-weight: bold;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .notification {
+        background-color: rgb(240, 240, 240);
+        padding: 20px;
+        border-radius: 5px;
+        position: absolute;
+        opacity: 0;
+        transition: all 0.3s;
+      }
+
+      /* .lower-table-container p {
+        padding: 5px !important;
+      } */
     </style>
 
-    <table
+    <div class="container">
+      <div class="logos-container">
+        <div class="logo-container">
+          <img
+            class="companyImage"
+            id="kk"
+            src="https://assets.stickpng.com/images/584fcb3f6a5ae41a83ddee87.png"
+          />
+        </div>
+        <div class="logo-container">
+          <img
+            class="companyImage"
+            id="kfc"
+            src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488265976/k2htrr9z4vsxkjbthskk.png"
+          />
+        </div>
+        <div class="logo-container">
+          <img
+            class="companyImage"
+            id="chk"
+            src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
+          />
+        </div>
+      </div>
+      <div class="issues-heading-container">
+        <div id="hardware" class="issues-heading">Hardware Issues</div>
+        <div id="software" class="issues-heading">Software Issues</div>
+        <div id="network" class="issues-heading">Network Issues</div>
+      </div>
+
+      <div class="lower-table-container">
+        <div class="border-rlb table-cell d-flex border-t">
+          <div class="w-15 border-r">Select Issue</div>
+          <div>
+            <select id="items" selected="Select" name="items" id="items">
+              Select Issue
+            </select>
+            <div id="notification" class="notification">
+              Select your store and type of issue
+            </div>
+          </div>
+        </div>
+        <div class="border-rlb table-cell d-flex">
+          <div class="w-15 border-r">Priority</div>
+          <div><p id="priority">N/A</p></div>
+        </div>
+        <div class="border-rlb d-flex">
+          <div class="w-15 border-r">Asset</div>
+          <div><p id="asset">N/A</p></div>
+        </div>
+        <div class="border-rlb d-flex">
+          <div class="w-15 border-r">Operations Category</div>
+          <div><p id="operationsCategory">N/A</p></div>
+        </div>
+        <div class="border-rlb d-flex">
+          <div class="w-15 border-r">Product Category</div>
+          <div><p id="productCategory">N/A</p></div>
+        </div>
+        <div class="border-rlb d-flex">
+          <div class="w-15 border-r">Resolution Category</div>
+          <div><p id="resolutionsCategory">N/A</p></div>
+        </div>
+        <div class="border-rlb d-flex">
+          <div class="w-15 border-r">Ticket Name</div>
+          <div><p id="asset">N/A</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <table
       class="border"
       style="border-collapse: collapse; width: 800px; word-wrap: break-word"
     >
@@ -150,7 +343,7 @@
         <td class="border">Ticket Name</td>
         <td class="border" colspan="4">n/a</td>
       </tr>
-    </table>
+    </table> -->
     <script>
       const krispyKreme = {
         hardware: {
@@ -278,9 +471,17 @@
       const software = document.getElementById("software");
       const hardware = document.getElementById("hardware");
       const network = document.getElementById("network");
+      const notification = document.getElementById("notification");
 
       let typeOfIssuesSelected = "";
       let companySelected = "";
+
+      dropdown.addEventListener("click", function () {
+        if (dropdown.options.length === 0) notification.style.opacity = 1;
+        setTimeout(function () {
+          notification.style.opacity = 0;
+        }, 1500);
+      });
 
       hardware.addEventListener("click", function () {
         typeOfIssuesSelected = "hardware";
@@ -416,8 +617,25 @@
               console.log("kfc");
               break;
           }
-          previousType = type;
-          currentCompany = company;
+
+          switch (priority.innerHTML) {
+            case "Critical":
+              priority.style.color = "#CE1041";
+              break;
+            case "High":
+              priority.style.color = "#B44F0B";
+              break;
+            case "Medium":
+              priority.style.color = "#CFB11A";
+              break;
+            case "Low":
+              priority.style.color = "#5CCF1A";
+              break;
+
+            default:
+              priority.style.color = "black";
+              break;
+          }
         }
       }
 
@@ -483,6 +701,25 @@
               kfcData[`${typeOfIssuesSelected}`][
                 `${this.value}`
               ].resolutionsCategory;
+            break;
+        }
+
+        switch (priority.innerHTML) {
+          case "Critical":
+            priority.style.color = "#CE1041";
+            break;
+          case "High":
+            priority.style.color = "#B44F0B";
+            break;
+          case "Medium":
+            priority.style.color = "#CFB11A";
+            break;
+          case "Low":
+            priority.style.color = "#5CCF1A";
+            break;
+
+          default:
+            priority.style.color = "black";
             break;
         }
       };
