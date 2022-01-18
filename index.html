@@ -7,7 +7,10 @@
     <title>Document</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      const kkImageBase64 =
+        "http://assets.stickpng.com/images/584fcb3f6a5ae41a83ddee87.png";
+    </script>
 
     <!-- /////////////////// -->
 
@@ -31,7 +34,7 @@
       } */
 
       #kk {
-        transform: scale(50%) translateX(-150px);
+        transform: scale(50%) translateX(-30%);
         margin-right: 100px;
       }
 
@@ -42,9 +45,9 @@
       #kfc {
       }
 
-      #kk {
+      /* #kk {
         transform: scale(50%) translateX(90px);
-      }
+      } */
 
       .border {
         border: 1px solid #aaa;
@@ -177,74 +180,100 @@
       }
     </style>
 
-    <div class="container">
-      <div class="logos-container">
-        <div class="logo-container">
-          <img
-            class="companyImage"
-            id="kk"
-            src="https://assets.stickpng.com/images/584fcb3f6a5ae41a83ddee87.png"
-          />
-        </div>
-        <div class="logo-container">
-          <img
-            class="companyImage"
-            id="kfc"
-            src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488265976/k2htrr9z4vsxkjbthskk.png"
-          />
-        </div>
-        <div class="logo-container">
-          <img
-            class="companyImage"
-            id="chk"
-            src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
-          />
-        </div>
-      </div>
-      <div class="issues-heading-container">
-        <div id="hardware" class="issues-heading">Hardware Issues</div>
-        <div id="software" class="issues-heading">Software Issues</div>
-        <div id="network" class="issues-heading">Network Issues</div>
-      </div>
-
-      <div class="lower-table-container">
-        <div class="border-rlb table-cell d-flex border-t">
-          <div class="w-15 border-r">Select Issue</div>
-          <div>
-            <select id="items" selected="Select" name="items" id="items">
-              Select Issue
-            </select>
-            <div id="notification" class="notification">
-              Select your store and type of issue
-            </div>
+    <table
+      class="border"
+      style="border-collapse: collapse; width: 800px; word-wrap: break-word"
+    >
+      <tr class="border">
+        <th colspan="2">
+          <div style="width: 300px; height: 200px">
+            <img
+              class="companyImage"
+              id="kk"
+              src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Krispy_Kreme_logo.svg"
+            />
           </div>
-        </div>
-        <div class="border-rlb table-cell d-flex">
-          <div class="w-15 border-r">Priority</div>
-          <div><p id="priority">N/A</p></div>
-        </div>
-        <div class="border-rlb d-flex">
-          <div class="w-15 border-r">Asset</div>
-          <div><p id="asset">N/A</p></div>
-        </div>
-        <div class="border-rlb d-flex">
-          <div class="w-15 border-r">Operations Category</div>
-          <div><p id="operationsCategory">N/A</p></div>
-        </div>
-        <div class="border-rlb d-flex">
-          <div class="w-15 border-r">Product Category</div>
-          <div><p id="productCategory">N/A</p></div>
-        </div>
-        <div class="border-rlb d-flex">
-          <div class="w-15 border-r">Resolution Category</div>
-          <div><p id="resolutionsCategory">N/A</p></div>
-        </div>
-        <div class="border-rlb d-flex">
-          <div class="w-15 border-r">Ticket Name</div>
-          <div><p id="asset">N/A</p></div>
-        </div>
-      </div>
-    </div>
+        </th>
+        <th colspan="2">
+          <div style="width: 300px; height: 200px">
+            <img
+              class="companyImage"
+              id="kfc"
+              src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488265976/k2htrr9z4vsxkjbthskk.png"
+            />
+          </div>
+        </th>
+        <th colspan="2">
+          <div style="width: 300px; height: 200px; overflow: hidden">
+            <img
+              class="companyImage"
+              id="chk"
+              src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
+            />
+          </div>
+        </th>
+      </tr>
+      <tr>
+        <td id="hardware" colspan="2" class="typeTab border">
+          Hardware Issues
+        </td>
+        <td id="software" colspan="2" class="typeTab border">
+          Software Issues
+        </td>
+        <td id="network" colspan="2" class="typeTab border">Network Issues</td>
+      </tr>
+
+      <tr>
+        <td class="border">
+          <table style="border-collapse: collapse">
+            <td>
+              <table class="test">
+                <tr></tr>
+                <tr>
+                  <td colspan="4"><div>Priority</div></td>
+                </tr>
+                <tr>
+                  <td colspan="4"><div>Asset</div></td>
+                </tr>
+              </table>
+            </td>
+          </table>
+        </td>
+        <td>
+          <table>
+            <td>
+              <table>
+                <tr>
+                  <select name="items" id="items"></select>
+                </tr>
+                <tr>
+                  <td id="priority">n/a</td>
+                </tr>
+                <tr>
+                  <td id="asset">n/a</td>
+                </tr>
+              </table>
+            </td>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td class="border">Operations Category</td>
+        <td id="operationsCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Product Category</td>
+        <td id="productCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Resolution Category</td>
+        <td id="resolutionsCategory" colspan="4" class="border">n/a</td>
+      </tr>
+      <tr>
+        <td class="border">Ticket Name</td>
+        <td class="border" colspan="4">n/a</td>
+      </tr>
+    </table>
 
     <!-- <table
       class="border"
@@ -474,6 +503,8 @@
       const network = document.getElementById("network");
       const notification = document.getElementById("notification");
 
+      // kk.src = kkImageBase64;
+
       let typeOfIssuesSelected = "";
       let companySelected = "";
 
@@ -564,14 +595,14 @@
                 console.log(dropdown, "===dropdown");
               }
 
-              priority.innerHTML = krispyKreme[`${type}`][`${arr[0]}`].priority;
-              asset.innerHTML = krispyKreme[`${type}`][`${arr[0]}`].asset;
+              priority.innerHTML = krispyKreme[type][arr[0]].priority;
+              asset.innerHTML = krispyKreme[type][arr[0]].asset;
               operationsCategory.innerHTML =
-                krispyKreme[`${type}`][`${arr[0]}`].operationsCategory;
+                krispyKreme[type][arr[0]].operationsCategory;
               productCategory.innerHTML =
-                krispyKreme[`${type}`][`${arr[0]}`].productCategory;
+                krispyKreme[type][arr[0]].productCategory;
               resolutionsCategory.innerHTML =
-                krispyKreme[`${type}`][`${arr[0]}`].resolutionsCategory;
+                krispyKreme[type][arr[0]].resolutionsCategory;
 
               break;
             case "checkers":
@@ -585,14 +616,14 @@
                 console.log(dropdown, "===dropdown");
               }
 
-              priority.innerHTML = checkers[`${type}`][`${arr[0]}`].priority;
-              asset.innerHTML = checkers[`${type}`][`${arr[0]}`].asset;
+              priority.innerHTML = checkers[type][arr[0]].priority;
+              asset.innerHTML = checkers[type][arr[0]].asset;
               operationsCategory.innerHTML =
-                checkers[`${type}`][`${arr[0]}`].operationsCategory;
+                checkers[type][arr[0]].operationsCategory;
               productCategory.innerHTML =
-                checkers[`${type}`][`${arr[0]}`].productCategory;
+                checkers[type][arr[0]].productCategory;
               resolutionsCategory.innerHTML =
-                checkers[`${type}`][`${arr[0]}`].resolutionsCategory;
+                checkers[type][arr[0]].resolutionsCategory;
 
               console.log("checkers");
               break;
@@ -607,14 +638,13 @@
                 console.log(dropdown, "===dropdown");
               }
 
-              priority.innerHTML = kfcData[`${type}`][`${arr[0]}`].priority;
-              asset.innerHTML = kfcData[`${type}`][`${arr[0]}`].asset;
+              priority.innerHTML = kfcData[type][arr[0]].priority;
+              asset.innerHTML = kfcData[type][arr[0]].asset;
               operationsCategory.innerHTML =
-                kfcData[`${type}`][`${arr[0]}`].operationsCategory;
-              productCategory.innerHTML =
-                kfcData[`${type}`][`${arr[0]}`].productCategory;
+                kfcData[type][arr[0]].operationsCategory;
+              productCategory.innerHTML = kfcData[type][arr[0]].productCategory;
               resolutionsCategory.innerHTML =
-                kfcData[`${type}`][`${arr[0]}`].resolutionsCategory;
+                kfcData[type][arr[0]].resolutionsCategory;
               console.log("kfc");
               break;
           }
@@ -646,62 +676,42 @@
 
       dropdown.onchange = function () {
         console.log(krispyKreme["hardware"]["allPinpads"].priority);
-        console.log([`${this.value}`]);
+        console.log([this.value]);
 
         switch (companySelected) {
           case "krispykreme":
             priority.innerHTML =
-              krispyKreme[`${typeOfIssuesSelected}`][`${this.value}`].priority;
+              krispyKreme[typeOfIssuesSelected][this.value].priority;
             asset.innerHTML =
-              krispyKreme[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+              krispyKreme[typeOfIssuesSelected][this.value].asset;
             operationsCategory.innerHTML =
-              krispyKreme[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].operationsCategory;
+              krispyKreme[typeOfIssuesSelected][this.value].operationsCategory;
             productCategory.innerHTML =
-              krispyKreme[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].productCategory;
+              krispyKreme[typeOfIssuesSelected][this.value].productCategory;
             resolutionsCategory.innerHTML =
-              krispyKreme[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].resolutionsCategory;
+              krispyKreme[typeOfIssuesSelected][this.value].resolutionsCategory;
             break;
           case "checkers":
             priority.innerHTML =
-              checkers[`${typeOfIssuesSelected}`][`${this.value}`].priority;
-            asset.innerHTML =
-              checkers[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+              checkers[typeOfIssuesSelected][this.value].priority;
+            asset.innerHTML = checkers[typeOfIssuesSelected][this.value].asset;
             operationsCategory.innerHTML =
-              checkers[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].operationsCategory;
+              checkers[typeOfIssuesSelected][this.value].operationsCategory;
             productCategory.innerHTML =
-              checkers[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].productCategory;
+              checkers[typeOfIssuesSelected][this.value].productCategory;
             resolutionsCategory.innerHTML =
-              checkers[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].resolutionsCategory;
+              checkers[typeOfIssuesSelected][this.value].resolutionsCategory;
             break;
           case "kfc":
             priority.innerHTML =
-              kfcData[`${typeOfIssuesSelected}`][`${this.value}`].priority;
-            asset.innerHTML =
-              kfcData[`${typeOfIssuesSelected}`][`${this.value}`].asset;
+              kfcData[typeOfIssuesSelected][this.value].priority;
+            asset.innerHTML = kfcData[typeOfIssuesSelected][this.value].asset;
             operationsCategory.innerHTML =
-              kfcData[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].operationsCategory;
+              kfcData[typeOfIssuesSelected][this.value].operationsCategory;
             productCategory.innerHTML =
-              kfcData[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].productCategory;
+              kfcData[typeOfIssuesSelected][this.value].productCategory;
             resolutionsCategory.innerHTML =
-              kfcData[`${typeOfIssuesSelected}`][
-                `${this.value}`
-              ].resolutionsCategory;
+              kfcData[typeOfIssuesSelected][this.value].resolutionsCategory;
             break;
         }
 
