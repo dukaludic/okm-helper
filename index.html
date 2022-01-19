@@ -51,6 +51,7 @@
 
       .border {
         border: 1px solid #aaa;
+        padding: 10px;
       }
 
       .typeTab {
@@ -153,7 +154,7 @@
       } */
 
       #items {
-        width: 200px;
+        width: 100%;
       }
 
       #priority {
@@ -181,10 +182,10 @@
     </style>
 
     <table
-      class="border"
+      class="border lower-table-container"
       style="border-collapse: collapse; width: 800px; word-wrap: break-word"
     >
-      <tr class="border">
+      <tr>
         <th colspan="2">
           <div style="width: 300px; height: 200px">
             <img
@@ -203,56 +204,69 @@
             />
           </div>
         </th>
-        <th colspan="2">
-          <div style="width: 300px; height: 200px; overflow: hidden">
-            <img
-              class="companyImage"
-              id="chk"
-              src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
-            />
-          </div>
+        <th style="overflow: hidden" colspan="2">
+          <img
+            class="companyImage"
+            id="chk"
+            src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
+          />
         </th>
       </tr>
+    </table>
+    <table
+      class="border lower-table-container"
+      style="
+        border-collapse: collapse;
+        width: 800px;
+        word-wrap: break-word;
+        margin-top: 30px;
+      "
+    >
       <tr>
-        <td id="hardware" colspan="2" class="typeTab border">
-          Hardware Issues
-        </td>
-        <td id="software" colspan="2" class="typeTab border">
-          Software Issues
-        </td>
-        <td id="network" colspan="2" class="typeTab border">Network Issues</td>
+        <colgroup>
+          <col style="width: 300px" />
+          <col style="width: 300px" />
+          <col style="width: 300px" />
+        </colgroup>
+        <td id="hardware" class="typeTab border">Hardware Issues</td>
+        <td id="software" class="typeTab border">Software Issues</td>
+        <td id="network" class="typeTab border">Network Issues</td>
       </tr>
 
       <tr>
-        <td class="border">
+        <td style="width: 33%" class="border">
           <table style="border-collapse: collapse">
             <td>
-              <table class="test">
-                <tr></tr>
-                <tr>
-                  <td colspan="4"><div>Priority</div></td>
-                </tr>
-                <tr>
-                  <td colspan="4"><div>Asset</div></td>
-                </tr>
-              </table>
+              <tr>
+                <select name="items" id="items"></select>
+              </tr>
+              <tr>
+                <td colspan="4"><div>Priority</div></td>
+              </tr>
+              <tr>
+                <td colspan="4"><div>Asset</div></td>
+              </tr>
             </td>
           </table>
         </td>
         <td>
-          <table>
+          <table style="border-collapse: collapse">
             <td>
-              <table>
-                <tr>
-                  <select name="items" id="items"></select>
-                </tr>
-                <tr>
-                  <td id="priority">n/a</td>
-                </tr>
-                <tr>
-                  <td id="asset">n/a</td>
-                </tr>
-              </table>
+              <tr>
+                <td>&nbsp;</td>
+              </tr>
+            </td>
+            <td>
+              <tr>
+                <td style="padding: 0 10px" id="priority" colspan="4">
+                  <div>n/a</div>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding: 0 10px" id="asset" colspan="4">
+                  <div>n/a</div>
+                </td>
+              </tr>
             </td>
           </table>
         </td>
@@ -275,109 +289,11 @@
       </tr>
     </table>
 
-    <!-- <table
-      class="border"
-      style="border-collapse: collapse; width: 800px; word-wrap: break-word"
-    >
-      <tr class="border">
-        <th colspan="2">
-          <div style="width: 300px; height: 200px">
-            <img
-              class="companyImage"
-              id="kk"
-              src="https://assets.stickpng.com/images/584fcb3f6a5ae41a83ddee87.png"
-            />
-          </div>
-        </th>
-        <th colspan="2">
-          <div style="width: 300px; height: 200px">
-            <img
-              class="companyImage"
-              id="kfc"
-              src="https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/v1488265976/k2htrr9z4vsxkjbthskk.png"
-            />
-          </div>
-        </th>
-        <th colspan="2">
-          <div style="width: 300px; height: 200px; overflow: hidden">
-            <img
-              class="companyImage"
-              id="chk"
-              src="https://media-cdn.grubhub.com/image/upload/d_search:browse-images:default.jpg/w_1200,h_800,f_auto,fl_lossy,q_80,c_fit/rghsuynmrjzax49wajsk"
-            />
-          </div>
-        </th>
-      </tr>
-      <tr>
-        <td id="hardware" colspan="2" class="typeTab border">
-          Hardware Issues
-        </td>
-        <td id="software" colspan="2" class="typeTab border">
-          Software Issues
-        </td>
-        <td id="network" colspan="2" class="typeTab border">Network Issues</td>
-      </tr>
-
-      <tr>
-        <td class="border">Hardware Issues</td>
-        <td class="border">
-          <table style="border-collapse: collapse">
-            <td>
-              <table class="test">
-                <tr>
-                  <td colspan="4">
-                    <div style="width: 100%; height: 100%">Type of problem</div>
-                  </td>
-                </tr>
-                <tr>
-                  <td colspan="4"><div>Priority</div></td>
-                </tr>
-                <tr>
-                  <td colspan="4"><div>Asset</div></td>
-                </tr>
-              </table>
-            </td>
-          </table>
-        </td>
-        <td>
-          <table>
-            <td>
-              <table>
-                <tr>
-                  <select name="items" id="items"></select>
-                </tr>
-                <tr>
-                  <td id="priority">n/a</td>
-                </tr>
-                <tr>
-                  <td id="asset">n/a</td>
-                </tr>
-              </table>
-            </td>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td class="border">Operations Category</td>
-        <td id="operationsCategory" colspan="4" class="border">n/a</td>
-      </tr>
-      <tr>
-        <td class="border">Product Category</td>
-        <td id="productCategory" colspan="4" class="border">n/a</td>
-      </tr>
-      <tr>
-        <td class="border">Resolution Category</td>
-        <td id="resolutionsCategory" colspan="4" class="border">n/a</td>
-      </tr>
-      <tr>
-        <td class="border">Ticket Name</td>
-        <td class="border" colspan="4">n/a</td>
-      </tr>
-    </table> -->
     <script>
       const krispyKreme = {
         hardware: {
           allPinpads: {
+            title: "All Pinpads",
             priority: "Critical",
             asset: "MX915",
             operationsCategory:
@@ -386,13 +302,15 @@
             resolutionsCategory: "Software>Procedural",
           },
           scanner: {
+            title: "Scanner",
             priority: "Medium",
             asset: "Honeycomb",
             operationsCategory: "Fix/Repair>Troubleshoot>Performance",
             productCategory: "Hello",
             resolutionsCategory: "Hardware/Adjust",
           },
-          BOH: {
+          boh: {
+            title: "BOH",
             priority: "High",
             asset: "H400",
             operationsCategory: "Warning/Error > Degraded Performance",
@@ -429,7 +347,7 @@
             productCategory: "Hello CHK",
             resolutionsCategory: "Hardware/Adjust CHK",
           },
-          BOH: {
+          boh: {
             priority: "High",
             asset: "H400",
             operationsCategory: "Warning/Error > Degraded Performance",
@@ -438,7 +356,7 @@
           },
         },
         software: {
-          RTI: {
+          rti: {
             priority: "Low CHK",
             asset: "CHK",
             operationsCategory:
@@ -466,7 +384,7 @@
             productCategory: "Hello KFC",
             resolutionsCategory: "Hardware/Adjust KFC",
           },
-          BOH: {
+          boh: {
             priority: "High KFC",
             asset: "H400 KFC",
             operationsCategory: "Warning/Error > Degraded Performance KFC",
@@ -476,7 +394,7 @@
           },
         },
         software: {
-          RTI: {
+          rti: {
             priority: "Low KFC",
             asset: "KFC",
             operationsCategory:
@@ -501,19 +419,17 @@
       const software = document.getElementById("software");
       const hardware = document.getElementById("hardware");
       const network = document.getElementById("network");
-      const notification = document.getElementById("notification");
-
-      // kk.src = kkImageBase64;
+      // const notification = document.getElementById("notification");
 
       let typeOfIssuesSelected = "";
       let companySelected = "";
 
-      dropdown.addEventListener("click", function () {
-        if (dropdown.options.length === 0) notification.style.opacity = 1;
-        setTimeout(function () {
-          notification.style.opacity = 0;
-        }, 1500);
-      });
+      // dropdown.addEventListener("click", function () {
+      //   if (dropdown.options.length === 0) notification.style.opacity = 1;
+      //   setTimeout(function () {
+      //     notification.style.opacity = 0;
+      //   }, 1500);
+      // });
 
       hardware.addEventListener("click", function () {
         typeOfIssuesSelected = "hardware";
@@ -573,12 +489,9 @@
         }
       });
 
-      console.log(dropdown);
       let currentCompany = "";
       let previousType = "";
       function init(company, type) {
-        console.log(company, type);
-        //tu je bug
         if (currentCompany === company && previousType === type) {
           return;
         } else {
@@ -586,13 +499,19 @@
           switch (company) {
             case "krispykreme":
               arr = Object.keys(krispyKreme[type]);
+              console.log(krispyKreme[type][arr[0]], "krispykreme [type]");
               for (let i = dropdown.length; i >= 0; i--) {
                 dropdown.remove(i);
               }
               for (let i = 0; i < arr.length; i++) {
-                console.log(arr, "===hardware i");
-                dropdown.add(new Option(arr[i], arr[i]));
-                console.log(dropdown, "===dropdown");
+                dropdown.add(
+                  new Option(
+                    krispyKreme[type][arr[i]].title,
+                    krispyKreme[type][arr[i]].title
+                  )
+                );
+
+                // dropdown.add(new Option(arr[i], arr[i]));
               }
 
               priority.innerHTML = krispyKreme[type][arr[0]].priority;
@@ -611,9 +530,7 @@
                 dropdown.remove(i);
               }
               for (let i = 0; i < arr.length; i++) {
-                console.log(arr, "===hardware i");
                 dropdown.add(new Option(arr[i], arr[i]));
-                console.log(dropdown, "===dropdown");
               }
 
               priority.innerHTML = checkers[type][arr[0]].priority;
@@ -633,9 +550,7 @@
                 dropdown.remove(i);
               }
               for (let i = 0; i < arr.length; i++) {
-                console.log(arr, "===hardware i");
                 dropdown.add(new Option(arr[i], arr[i]));
-                console.log(dropdown, "===dropdown");
               }
 
               priority.innerHTML = kfcData[type][arr[0]].priority;
@@ -672,46 +587,74 @@
 
       // companyImage.addEventListener("click", changeHandler);
 
-      dropdown.onchange = console.log(dropdown);
+      //to camelCase because it needs to access properties like written in the data object but only has access to this.value from here which shouldn't be camel case. not the best solution for sure
+      function camelize(s) {
+        var n = s.length;
+        s = s.toLowerCase();
+
+        var str = s[0].toLowerCase();
+        for (var i = 1; i < n; i++) {
+          if (s[i] == " ") {
+            str += s[i + 1].toUpperCase();
+            i++;
+          } else {
+            str += s[i];
+          }
+        }
+        return str;
+      }
+
+      dropdown.onchange = console.log(dropdown, "dropdown");
 
       dropdown.onchange = function () {
-        console.log(krispyKreme["hardware"]["allPinpads"].priority);
-        console.log([this.value]);
+        console.log("changed", companySelected);
+
+        let camelCaseStr = camelize(this.value);
+
+        console.log(camelCaseStr, "===camelCaseStr");
 
         switch (companySelected) {
           case "krispykreme":
+            console.log(this.value, "this");
             priority.innerHTML =
-              krispyKreme[typeOfIssuesSelected][this.value].priority;
+              krispyKreme[typeOfIssuesSelected][camelCaseStr].priority;
+
+            //assign values by this.value
             asset.innerHTML =
-              krispyKreme[typeOfIssuesSelected][this.value].asset;
+              krispyKreme[typeOfIssuesSelected][camelCaseStr].asset;
             operationsCategory.innerHTML =
-              krispyKreme[typeOfIssuesSelected][this.value].operationsCategory;
+              krispyKreme[typeOfIssuesSelected][
+                camelCaseStr
+              ].operationsCategory;
             productCategory.innerHTML =
-              krispyKreme[typeOfIssuesSelected][this.value].productCategory;
+              krispyKreme[typeOfIssuesSelected][camelCaseStr].productCategory;
             resolutionsCategory.innerHTML =
-              krispyKreme[typeOfIssuesSelected][this.value].resolutionsCategory;
+              krispyKreme[typeOfIssuesSelected][
+                camelCaseStr
+              ].resolutionsCategory;
             break;
           case "checkers":
             priority.innerHTML =
-              checkers[typeOfIssuesSelected][this.value].priority;
-            asset.innerHTML = checkers[typeOfIssuesSelected][this.value].asset;
+              checkers[typeOfIssuesSelected][camelCaseStr].priority;
+            asset.innerHTML =
+              checkers[typeOfIssuesSelected][camelCaseStr].asset;
             operationsCategory.innerHTML =
-              checkers[typeOfIssuesSelected][this.value].operationsCategory;
+              checkers[typeOfIssuesSelected][camelCaseStr].operationsCategory;
             productCategory.innerHTML =
-              checkers[typeOfIssuesSelected][this.value].productCategory;
+              checkers[typeOfIssuesSelected][camelCaseStr].productCategory;
             resolutionsCategory.innerHTML =
-              checkers[typeOfIssuesSelected][this.value].resolutionsCategory;
+              checkers[typeOfIssuesSelected][camelCaseStr].resolutionsCategory;
             break;
           case "kfc":
             priority.innerHTML =
-              kfcData[typeOfIssuesSelected][this.value].priority;
-            asset.innerHTML = kfcData[typeOfIssuesSelected][this.value].asset;
+              kfcData[typeOfIssuesSelected][camelCaseStr].priority;
+            asset.innerHTML = kfcData[typeOfIssuesSelected][camelCaseStr].asset;
             operationsCategory.innerHTML =
-              kfcData[typeOfIssuesSelected][this.value].operationsCategory;
+              kfcData[typeOfIssuesSelected][camelCaseStr].operationsCategory;
             productCategory.innerHTML =
-              kfcData[typeOfIssuesSelected][this.value].productCategory;
+              kfcData[typeOfIssuesSelected][camelCaseStr].productCategory;
             resolutionsCategory.innerHTML =
-              kfcData[typeOfIssuesSelected][this.value].resolutionsCategory;
+              kfcData[typeOfIssuesSelected][camelCaseStr].resolutionsCategory;
             break;
         }
 
@@ -728,7 +671,6 @@
           case "Low":
             priority.style.color = "#5CCF1A";
             break;
-
           default:
             priority.style.color = "black";
             break;
